@@ -21,7 +21,7 @@ namespace CellzIoCoinClaimer
         {
             InitializeComponent();
             this.Shown += new System.EventHandler(this.Form1_Shown);
-            CheckForIllegalCrossThreadCalls = false;
+            //CheckForIllegalCrossThreadCalls = false;
             this.FormBorderStyle = FormBorderStyle.None; 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -50,7 +50,6 @@ namespace CellzIoCoinClaimer
                 {
                     Thread.Sleep(1000);
                     html = CreateRequest(url);
-                    //this.materialLabel1.Text = html;
                 }
             }).Start();
             new Thread(() =>
@@ -59,7 +58,7 @@ namespace CellzIoCoinClaimer
                 while (true)
                 {
                     Thread.Sleep(1000);
-                    this.materialLabel1.Text = html;
+                    Invoke(new Action(() => { this.materialLabel1.Text = html; }));
                 }
             }).Start();
 
