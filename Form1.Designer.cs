@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -84,10 +85,10 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(213, 351);
+            this.materialLabel3.Location = new System.Drawing.Point(5, 344);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(19, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(17, 19);
             this.materialLabel3.TabIndex = 3;
             this.materialLabel3.Text = "";
             this.materialLabel3.Click += new System.EventHandler(this.materialLabel3_Click);
@@ -101,9 +102,12 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialFlatButton1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "AFK Coin Claimer by Gangland OTF                                                                                       discord.gg/Qp6VyBd ";
+            this.Text = "AFK Coin Claimer by Gangland OTF                                                 " +
+    "                                      discord.gg/Qp6VyBd ";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
