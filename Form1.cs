@@ -90,17 +90,19 @@ namespace CellzIoCoinClaimer
             string html = string.Empty;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
-            request.Host = "api.cellz.io";
-            request.KeepAlive = true;
-            request.Accept = "*/*";
+            request.Host = "api.cellz.io"; 
+            request.KeepAlive = true; 
+            request.Accept = "*/*"; 
+            request.Headers["Sec-Fetch-Des"] = "empty"; 
             request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36";
-            request.Referer = "https://tricksplit.io/";
-            request.Headers["Origin"] = "https://tricksplit.io";
-            request.Headers["Sec-Fetch-Des"] = "empty";
-            request.Headers["Sec-Fetch-Site"] = "cross-site";
-            request.Headers["Sec-Fetch-Mode"] = "cors";
+            request.Headers["Origin"] = "https://tricksplit.io"; 
+            request.Headers["Sec-Fetch-Site"] = "cross-site"; 
+            request.Headers["Sec-Fetch-Mode"] = "cors"; 
+            request.Referer = "https://tricksplit.io/"; 
             request.Headers["Accept-Encoding"] = "gzip, deflate, br";
             request.Headers["Accept-Language"] = "en-US,en;q=0.9";
+            //Order might matter, quick fix.
+        
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             using (Stream stream = response.GetResponseStream())
