@@ -34,6 +34,7 @@ namespace CellzIoCoinClaimer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
             string path = Environment.CurrentDirectory + "\\paste_token_here.txt";
 
 
@@ -81,6 +82,16 @@ namespace CellzIoCoinClaimer
                 {
                     Thread.Sleep(1000);
                     Invoke(new Action(() => { this.materialLabel1.Text = html; }));
+                }
+            }).Start();
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                while (true)
+                {
+                    Thread.Sleep(TimeSpan.FromMinutes(10));
+                    Application.Exit();
+                    Process.Start(Application.ExecutablePath, "/restart" + Process.GetCurrentProcess().Id);
                 }
             }).Start();
         }
